@@ -13,8 +13,11 @@ part 'on_hold_state.dart';
 part 'on_hold_bloc.freezed.dart';
 
 class OnHoldBloc extends Bloc<OnHoldEvent, OnHoldState> {
-  OnHoldBloc() : super(_LoadInProgress());
+  OnHoldBloc() : super(_LoadInProgress()) {
+    add(_Started());
+  }
   final CardsRepository cardsRepository = sl();
+  
 
   @override
   Stream<OnHoldState> mapEventToState(
